@@ -1,0 +1,23 @@
+.card-front {
+    background-color: cadetblue;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    min-height: 12rem;
+    cursor: pointer;
+
+    .list {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
+}
+
+
+.card-back {
+    background-color: rgb(184, 64, 48);
+}
