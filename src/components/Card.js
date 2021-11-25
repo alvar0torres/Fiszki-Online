@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ReactCardFlip from "react-card-flip";
 
 import styles from "./Card.module.scss";
 
-const Card = () => {
+const Card = (props) => {
   const [isFlipped, setIsFlipped] = useState(false);
+
+  useEffect(() => {
+    setIsFlipped(false);
+  }, [props.cardsToShow]);
 
   const onClickHandler = (event) => {
     event.preventDefault();
     setIsFlipped(!isFlipped);
+    setTimeout(() => {
+      setIsFlipped(false);
+    }, 3000);
   };
 
   return (
@@ -18,21 +25,23 @@ const Card = () => {
         <div className={styles["card-container"]}>
           <ul className={styles.list}>
             <li>
-              <strong>la tarde</strong>
+              <strong>{props.front[0]}</strong>
             </li>
-            <li>Por las tardes visito a mis amigos</li>
+            <li>{props.front[1]}</li>
           </ul>
         </div>
       </div>
 
       <div onClick={onClickHandler} className={styles["card-back"]}>
         <div className={styles["card-container"]}>
-          <ul className={styles.list}>
-            <li>
-              <strong>popoludnie; wieczor</strong>
-            </li>
-            <li>Wieczorami odwiedzam przyjaciol.</li>
-          </ul>
+          {isFlipped && (
+            <ul className={styles.list}>
+              <li>
+                <strong>{props.back[0]}</strong>
+              </li>
+              <li>{props.back[1]}</li>
+            </ul>
+          )}
         </div>
       </div>
     </ReactCardFlip>

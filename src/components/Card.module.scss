@@ -1,23 +1,47 @@
 .card-front {
-    background-color: cadetblue;
+  background-color: #00acff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-1%);
+    transition: transform 0.3s ease-out;
+  }
 }
 
 .card-container {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  min-height: 12rem;
+  width: 20rem;
+  cursor: pointer;
+  color: white;
+
+  // @media (max-width: 90rem) {
+  //   width: 15rem;
+  // }
+
+  .list {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
-    min-height: 12rem;
-    cursor: pointer;
-
-    .list {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 2rem;
-    }
+    grid-gap: 2rem;
+  }
 }
-
 
 .card-back {
-    background-color: rgb(184, 64, 48);
+  background-color: rgb(184, 64, 48);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-1%);
+    transition: transform 0.3s ease-out;
+  }
 }
+
+

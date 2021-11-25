@@ -2,16 +2,11 @@ import styles from "./Header.module.scss";
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <div>
+    <header >
+      <div className={styles.header}>
         <h1>Fiszki Online</h1>
       </div>
-      <nav>
-        <ul>
-          <li>Learn</li>
-          <li>Test</li>
-        </ul>
-      </nav>
+      <div className={styles.description}>Flashcards for learning languages.</div>
     </header>
   );
 };
