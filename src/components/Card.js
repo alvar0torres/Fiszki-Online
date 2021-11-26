@@ -11,12 +11,18 @@ const Card = (props) => {
     setIsFlipped(false);
   }, [props.cardsToShow]);
 
+  useEffect(() => {
+    const unFlip = setTimeout(() => {
+      setIsFlipped(false);
+    }, 3000);
+    return () => {
+      clearTimeout(unFlip);
+    };
+  }, [isFlipped]);
+
   const onClickHandler = (event) => {
     event.preventDefault();
     setIsFlipped(!isFlipped);
-    setTimeout(() => {
-      setIsFlipped(false);
-    }, 3000);
   };
 
   return (
