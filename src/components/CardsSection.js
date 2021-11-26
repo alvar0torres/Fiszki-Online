@@ -8,169 +8,15 @@ import ReactCountryFlag from "react-country-flag";
 
 import styles from "./CardsSection.module.scss";
 
-const START = [
-  {
-    id: "c1",
-    front: ["la casa", "Vivo en una casa muy grande"],
-    back: ["dom", "Mieszkam w duzym domu"],
-  },
-  {
-    id: "c2",
-    front: ["la familia", "Mi familia vive en Polonia"],
-    back: ["rodzina", "Moja rodzina mieszka w Polsce"],
-  },
-  {
-    id: "c3",
-    front: ["blanco / blanca", "El sofa es blanco"],
-    back: ["bialy, biala, biale", "Sofa jest biala"],
-  },
-  {
-    id: "c4",
-    front: ["negro / negra", "La silla es negra"],
-    back: ["czarny, czarna, czarne", "Krzeslo jest czarne"],
-  },
-  {
-    id: "c5",
-    front: ["amarillo / amarilla", "-Es amarilla"],
-    back: ["zolty, zolta, zolte", "-Jest zolte."],
-  },
-  {
-    id: "c6",
-    front: ["el supermercado", "A veces voy al supermercado"],
-    back: ["supermarket", "Czasami chodzde do supermarketu"],
-  },
-  {
-    id: "c7",
-    front: ["el supermercado", "A veces voy al supermercado"],
-    back: ["supermarket", "Czasami chodzde do supermarketu"],
-  },
-  {
-    id: "c8",
-    front: ["el euro", "Tengo cinco euros"],
-    back: ["euro", "Mam piec euro"],
-  },
-  {
-    id: "c9",
-    front: ["¿quién?", "¿Quién eres?"],
-    back: ["kto", "Kim jestes"],
-  },
-  {
-    id: "c10",
-    front: ["tu", "(Tú) eres Inés"],
-    back: ["ty", "(Ty) jestes Agnieszka"],
-  },
-  {
-    id: "c11",
-    front: ["usted", "¿Es usted polaco?"],
-    back: ["pan / pani", "Czy pan jest Polakiem"],
-  },
-  {
-    id: "c12",
-    front: ["el", "Él es español"],
-    back: ["on", "On jest Hiszpanem"],
-  },
-  {
-    id: "c13",
-    front: ["yo", "(Yo) soy Pablo."],
-    back: ["ja", "(Ja) jestem Pawel"],
-  },
-  {
-    id: "c14",
-    front: ["ella", "Ella es polaca"],
-    back: ["ona", "Ona jest Polka"],
-  },
-  {
-    id: "c15",
-    front: ["muy", "Pablo esta muy bien"],
-    back: ["bardzo", "Pawel ma sie bardzo dobrze"],
-  },
-];
+import EASY from "../levels/Easy";
 
-const MEDIUM = [
-  {
-    id: "c1",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c2",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c3",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c4",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c5",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c6",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c7",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c8",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c9",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c10",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c11",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c12",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c13",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c14",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-  {
-    id: "c15",
-    front: ["el zoologico", "el zoo"],
-    back: ["ogrod zoologiczny", "zoo"],
-  },
-  {
-    id: "c16",
-    front: ["la suciedad", "sucio"],
-    back: ["brud", "brudny"],
-  },
-];
+import MEDIUM from "../levels/Medium";
+
+import ADVANCED from "../levels/Advanced";
+
 
 const CardsSection = () => {
-  const [level, setLevel] = useState(START);
+  const [level, setLevel] = useState(EASY);
   const [cardsToShow, setCardsToShow] = useState([]);
   const [cardsClasses, setCardsClasses] = useState(styles["card-grid"]);
 
@@ -204,9 +50,11 @@ const CardsSection = () => {
 
   const changeLevelHandler = (event) => {
     if (event.target.value === "easy") {
-      setLevel(START);
+      setLevel(EASY);
     } else if (event.target.value === "medium") {
       setLevel(MEDIUM);
+    } else if (event.target.value === "advanced") {
+      setLevel(ADVANCED);
     }
   };
 
@@ -219,6 +67,7 @@ const CardsSection = () => {
           <select onChange={changeLevelHandler} name="level" id="cards-level">
             <option value="easy">EASY</option>
             <option value="medium">MEDIUM</option>
+            <option value="advanced">ADVANCED</option>
           </select>
         </div>
         <div className={styles.flags}>
