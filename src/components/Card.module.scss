@@ -21,9 +21,9 @@
   cursor: pointer;
   color: white;
 
-  // @media (max-width: 90rem) {
-  //   width: 15rem;
-  // }
+  @media (max-width: 40rem) {
+    width: 17rem;
+  }
 
   .list {
     display: grid;

@@ -18,18 +18,25 @@
     text-align: center;
     margin: 1rem 0;
     font-size: 2rem;
+
+    @media (max-width: 40rem) {
+      font-size: 1.75rem;
+    }
   }
 }
 
 .config {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 40rem) {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
-.flags {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 0.5rem;
+.flag {
+  margin: 0 0.1rem;
 }
 
 .select {

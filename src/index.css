@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./images/gray-pattern-background.jpg");
   background-repeat: repeat;
+  scroll-behavior: smooth;
 }
 
 code {

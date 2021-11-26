@@ -14,7 +14,6 @@ import MEDIUM from "../levels/Medium";
 
 import ADVANCED from "../levels/Advanced";
 
-
 const CardsSection = () => {
   const [level, setLevel] = useState(EASY);
   const [cardsToShow, setCardsToShow] = useState([]);
@@ -72,6 +71,7 @@ const CardsSection = () => {
         </div>
         <div className={styles.flags}>
           <ReactCountryFlag
+            className={styles.flag}
             countryCode="ES"
             svg
             style={{
@@ -81,6 +81,7 @@ const CardsSection = () => {
             title="US"
           />
           <ReactCountryFlag
+            className={styles.flag}
             countryCode="PL"
             svg
             style={{
